@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField.vue renders when all data is passed 1`] = `
+<div
+  class="relative"
+>
+  <input
+    autofocus="autoFocus"
+    class="search-field"
+    placeholder="Enter GitHub organization's name here"
+    type="search"
+  />
+  <search-spinner-stub />
+</div>
+`;

@@ -22,7 +22,7 @@ describe("ActivityItem.vue", () => {
       propsData
     });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
 
     expect(wrapper.find(".avatar").attributes("src")).toMatch("Avatar");
 
@@ -61,7 +61,7 @@ describe("ActivityItem.vue", () => {
       propsData
     });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
 
     expect(wrapper.find(".avatar").attributes("src")).toMatch("Avatar");
 

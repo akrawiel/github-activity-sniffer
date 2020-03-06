@@ -1,29 +1,6 @@
 # GitHub activity sniffer
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
+Application displaying latest users' activity from any GitHub organization 
 
 ### Stack used
 
@@ -31,3 +8,11 @@ yarn lint
 - Tailwind CSS
 - Pug
 - Jest
+
+## Project setup
+
+- package installation: `yarn install`
+- server running: `yarn serve`
+- project compilation: `yarn build`
+- unit tests: `yarn test:unit`
+- manual linter check: `yarn lint`

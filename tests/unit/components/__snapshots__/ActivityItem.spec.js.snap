@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActivityItem.vue renders when all data is passed 1`] = `
+<div class="activity-item"><img src="Avatar" class="avatar">
+  <div class="member-login flex font-bold items-center justify-start text-xl"><a href="https://github.com/Login" target="_blank" class="link">Login</a></div>
+  <div class="latest-event-container">
+    <div class="latest-event-date flex justify-between w-full"><b>Latest event date: </b><span>2020-02-02 02:00:00</span></div>
+    <div class="latest-event-type flex justify-between w-full"><b>Latest event type: </b><span>Test</span></div>
+    <div class="latest-event-repo flex justify-between w-full"><b>Latest event repo: </b><a href="https://github.com/test/test" target="_blank" class="link">test/test</a></div>
+  </div>
+</div>
+`;
+
+exports[`ActivityItem.vue renders when latest event is missing 1`] = `
+<div class="activity-item"><img src="Avatar" class="avatar">
+  <div class="member-login flex font-bold items-center justify-start text-xl"><a href="https://github.com/Login" target="_blank" class="link">Login</a></div>
+  <div class="latest-event-container">
+    <div class="latest-event-date flex justify-between w-full"><b>Latest event date: </b><span>N/A</span></div>
+    <div class="latest-event-type flex justify-between w-full"><b>Latest event type: </b><span>N/A</span></div>
+    <div class="latest-event-repo flex justify-between w-full"><b>Latest event repo: </b><span>N/A</span></div>
+  </div>
+</div>
+`;

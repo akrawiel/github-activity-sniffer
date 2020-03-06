@@ -1,4 +1,4 @@
-# makimo-task
+# GitHub activity sniffer
 
 ## Project setup
 ```

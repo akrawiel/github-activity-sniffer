@@ -1,7 +1,12 @@
 {
-  "name": "makimo-task",
+  "name": "github-activity-sniffer",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "a.krawiel@gmail.com",
+    "name": "Olek Krawiel",
+    "url": "https://kodespresso.surge.sh"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,6 +15,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "date-fns": "^2.10.0",
+    "lodash.debounce": "^4.0.8",
+    "tailwindcss": "^1.2.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -24,10 +32,15 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.1.2",
     "lint-staged": "^9.5.0",
+    "node-fetch": "^2.6.0",
+    "postcss-nested": "^4.2.1",
+    "postcss-simple-vars": "^5.0.2",
     "prettier": "^1.19.1",
-    "sass": "^1.25.0",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "vue-cli-plugin-tailwind": "~1.2.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

@@ -2,7 +2,7 @@
 
 Application displaying latest users' activity from any GitHub organization 
 
-### Stack used
+## Stack used
 
 - Vue
 - Tailwind CSS

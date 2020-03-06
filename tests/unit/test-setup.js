@@ -1,3 +1,3 @@
-import fetch from "node-fetch";
+/* global jest */
 
-global.fetch = fetch;
+global.fetch = jest.fn(url => Promise.resolve(url));

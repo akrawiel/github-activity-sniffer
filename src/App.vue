@@ -1,6 +1,6 @@
 <template lang="pug">
 #app
-  .flex.font-bold.justify-center.py-4.text-2xl.text-gray-700 GitHub activity sniffer
+  .flex.font-bold.justify-center.py-4.text-2xl.text-gray-700 GitHub Activity Sniffer
   search-field(@clear="onSearchClear" @error="onSearchError" :hasError="Boolean(errorMessage)" :transformOrganizationResponse="transformOrganizationResponse")
   error-message(:message="errorMessage")
   activity-item-container
@@ -53,6 +53,26 @@ export default {
         errorMessage: error
       });
     },
+    async transformMembersEvents({ data }) {
+      return await Promise.all(
+        data.map(async member => {
+          const events = await fetchWrapper({
+            url: `${member.events_url.replace("{/privacy}", "")}/public`
+          }).then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText);
+            }
+
+            return response.json();
+          });
+
+          return {
+            ...member,
+            latest_event: events[0] ?? null
+          };
+        })
+      );
+    },
     async transformOrganizationResponse({ promise }) {
       this.isFetching = true;
       this.errorMessage = "";
@@ -69,24 +89,9 @@ export default {
           };
         });
 
-        const membersWithLatestEvents = await Promise.all(
-          organizationResponse.data.map(async member => {
-            const events = await fetchWrapper({
-              url: `${member.events_url.replace("{/privacy}", "")}/public`
-            }).then(response => {
-              if (!response.ok) {
-                throw new Error(response.statusText);
-              }
-
-              return response.json();
-            });
-
-            return {
-              ...member,
-              latest_event: events[0] ?? null
-            };
-          })
-        );
+        const membersWithLatestEvents = await this.transformMembersEvents({
+          data: organizationResponse.data
+        });
 
         this.nextPageLink =
           organizationResponse.links
@@ -96,10 +101,11 @@ export default {
         this.memberData = [
           ...this.memberData,
           ...membersWithLatestEvents.map(
-            ({ id, login, avatar_url, latest_event }) => ({
+            ({ id, login, events_url, avatar_url, latest_event }) => ({
               id,
               login,
               avatar_url,
+              events_url,
               latest_event
             })
           )

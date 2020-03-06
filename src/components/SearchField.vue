@@ -29,8 +29,16 @@ export default {
     };
   },
   props: {
-    transformOrganizationResponse: Function,
-    hasError: Boolean
+    transformOrganizationResponse: {
+      type: Function,
+      required: false,
+      default: () => {}
+    },
+    hasError: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   methods: {
     search(event) {

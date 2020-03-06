@@ -4,16 +4,16 @@
   .member-login.flex.font-bold.items-center.justify-start.text-xl 
     a.link(:href="memberProfileHref" target="_blank") {{ member.login }}
   .latest-event-container
-    .latest-event-date.flex.justify-between.w-full
+    .latest-event-date.gap-2.grid.grid-columns-manual.justify-between.w-full
       b Latest event date:&emsp;
-      span {{ latestEventDate }}
-    .latest-event-type.flex.justify-between.w-full
+      span.truncate.text-right {{ latestEventDate }}
+    .latest-event-type.gap-2.grid.grid-columns-manual.justify-between.w-full
       b Latest event type:&emsp;
-      span {{ latestEventType }}
-    .latest-event-repo.flex.justify-between.w-full
+      span.truncate.text-right {{ latestEventType }}
+    .latest-event-repo.gap-2.grid.grid-columns-manual.justify-between.w-full
       b Latest event repo:&emsp;
-      a.link(:href="latestEventRepoHref" target="_blank" v-if="latestEventRepoHref") {{ latestEventRepoName }}
-      span(v-else) {{ latestEventRepoName }}
+      a.link.truncate.text-right(:href="latestEventRepoHref" target="_blank" v-if="latestEventRepoHref") {{ latestEventRepoName }}
+      span.truncate.text-right(v-else) {{ latestEventRepoName }}
 </template>
 
 <script>
@@ -81,5 +81,9 @@ $avatar_size: 5rem;
   &:hover {
     @apply text-blue-400;
   }
+}
+
+.grid-columns-manual {
+  grid-template-columns: auto 1fr;
 }
 </style>
